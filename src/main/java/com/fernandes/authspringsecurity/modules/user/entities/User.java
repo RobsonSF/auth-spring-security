@@ -1,12 +1,9 @@
 package com.fernandes.authspringsecurity.modules.user.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
-import java.util.Set;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -17,8 +14,14 @@ public class User {
     @Id
     @GeneratedValue
     private UUID id;
+
     private String name;
-    private String userName;
+
+    @Column(unique = true)
+    private String username;
+
     private String password;
-    private Set<Role> roles;
+
+    @ManyToMany
+    private List<Role> roles;
 }
