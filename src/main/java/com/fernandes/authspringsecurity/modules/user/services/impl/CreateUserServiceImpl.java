@@ -12,10 +12,10 @@ import org.springframework.stereotype.Service;
 public class CreateUserServiceImpl implements CreateUserService {
 
     @Autowired
-    UserRepository repository;
+    private UserRepository repository;
 
     @Autowired
-    UserMapper mapper;
+    private UserMapper mapper;
 
     @Override
     public User execute(UserRequest userRequest) {
