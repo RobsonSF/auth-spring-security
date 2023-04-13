@@ -25,7 +25,7 @@ public class UserController {
         return ResponseEntity.ok().body(user);
     }
 
-    @PutMapping("/role")
+    @PostMapping("/role")
     public ResponseEntity<User> role(@RequestBody RoleToUserRequest roleToUserRequest) {
         var user = roleToUserServiceImpl.execute(roleToUserRequest);
         return ResponseEntity.ok().body(user);
