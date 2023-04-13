@@ -1,14 +1,18 @@
 package com.fernandes.authspringsecurity.modules.user.entities;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 import java.util.UUID;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "tb_user")
-@Data
 public class User {
 
     @Id
