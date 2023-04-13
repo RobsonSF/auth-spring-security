@@ -20,16 +20,15 @@ public class CreateRoleToUserServiceImpl implements CreateRoleToUserService {
         optionalUser.orElseThrow(
                 () -> new RuntimeException("User not found")
         );
-
+        var user  = optionalUser.get();
         var roles = roleToUserRequest
                             .idsRoles()
                             .stream()
                             .map(Role::new)
                             .toList();
 
-        var user  = optionalUser.get();
         user.setRoles(roles);
 
-        return user;
+        return repository.save(user);
     }
 }
