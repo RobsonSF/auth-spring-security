@@ -2,7 +2,7 @@ package com.fernandes.authspringsecurity.modules.user.services.impl;
 
 import com.fernandes.authspringsecurity.modules.user.entities.Role;
 import com.fernandes.authspringsecurity.modules.user.entities.User;
-import com.fernandes.authspringsecurity.modules.user.model.RoleToUserRequest;
+import com.fernandes.authspringsecurity.modules.user.model.request.RoleToUserRequest;
 import com.fernandes.authspringsecurity.modules.user.repositories.UserRepository;
 import com.fernandes.authspringsecurity.modules.user.services.CreateRoleToUserService;
 import org.springframework.beans.factory.annotation.Autowired;

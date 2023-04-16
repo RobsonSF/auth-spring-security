@@ -1,10 +1,10 @@
 package com.fernandes.authspringsecurity.modules.user.services.impl;
 
 import com.fernandes.authspringsecurity.modules.user.entities.User;
-import com.fernandes.authspringsecurity.modules.user.model.UserRequest;
+import com.fernandes.authspringsecurity.modules.user.model.request.UserRequest;
 import com.fernandes.authspringsecurity.modules.user.repositories.UserRepository;
 import com.fernandes.authspringsecurity.modules.user.services.CreateUserService;
-import com.fernandes.authspringsecurity.modules.user.services.mapper.UserMapper;
+import com.fernandes.authspringsecurity.modules.user.services.mapper.UserRequestMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -16,7 +16,7 @@ public class CreateUserServiceImpl implements CreateUserService {
     private UserRepository repository;
 
     @Autowired
-    private UserMapper mapper;
+    private UserRequestMapper mapper;
 
     private BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
