@@ -6,7 +6,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
 @Mapper(componentModel = "spring")
-public interface ProductMapper {
+public interface ProductRequestMapper {
 
     @Mapping(target = "id", ignore = true)
     Product toProductEntity(ProductRequest productRequest);
