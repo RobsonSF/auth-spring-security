@@ -1,4 +1,4 @@
-package com.fernandes.authspringsecurity.modules.user.model;
+package com.fernandes.authspringsecurity.modules.user.model.request;
 
 import java.util.List;
 import java.util.Set;
