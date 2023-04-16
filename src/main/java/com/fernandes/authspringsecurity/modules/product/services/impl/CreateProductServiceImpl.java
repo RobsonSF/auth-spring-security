@@ -4,7 +4,7 @@ import com.fernandes.authspringsecurity.modules.product.entities.Product;
 import com.fernandes.authspringsecurity.modules.product.model.request.ProductRequest;
 import com.fernandes.authspringsecurity.modules.product.repositories.ProductRepository;
 import com.fernandes.authspringsecurity.modules.product.services.CreateProductService;
-import com.fernandes.authspringsecurity.modules.product.services.mapper.ProductMapper;
+import com.fernandes.authspringsecurity.modules.product.services.mapper.ProductRequestMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +15,7 @@ public class CreateProductServiceImpl implements CreateProductService {
     private ProductRepository repository;
 
     @Autowired
-    private ProductMapper mapper;
+    private ProductRequestMapper mapper;
 
     @Override
     public Product execute(ProductRequest productRequest) {
