@@ -1,7 +1,9 @@
 package com.fernandes.authspringsecurity.modules.product.controllers;
 
+import com.fernandes.authspringsecurity.modules.product.controllers.mapper.ProductResponseMapper;
 import com.fernandes.authspringsecurity.modules.product.entities.Product;
 import com.fernandes.authspringsecurity.modules.product.model.request.ProductRequest;
+import com.fernandes.authspringsecurity.modules.product.model.response.ProductResponse;
 import com.fernandes.authspringsecurity.modules.product.services.CreateProductService;
 import com.fernandes.authspringsecurity.modules.product.services.FindAllProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,15 +22,22 @@ public class ProductController {
     @Autowired
     private FindAllProductService findAllProductService;
 
+    @Autowired
+    private ProductResponseMapper mapper;
+
+//    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/create")
-    public ResponseEntity<Product> create(@RequestBody ProductRequest productRequest) {
+    public ResponseEntity<ProductResponse> create(@RequestBody ProductRequest productRequest) {
         var product = createProductService.execute(productRequest);
-        return ResponseEntity.ok().body(product);
+        var productResponse = mapper.toProductResponse(product);
+        return ResponseEntity.ok().body(productResponse);
     }
 
+//    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping
-    public ResponseEntity<Page<Product>> findAll(Pageable pageable) {
+    public ResponseEntity<Page<ProductResponse>> findAll(Pageable pageable) {
         var products = findAllProductService.execute(pageable);
-        return ResponseEntity.ok().body(products);
+        var productsResponse  = products.map(mapper::toProductResponse);
+        return ResponseEntity.ok().body(productsResponse);
     }
 }
